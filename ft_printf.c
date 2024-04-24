@@ -2,6 +2,20 @@
 #include "libft.h"
 #include <stdio.h>
 
+char *convert_hex_to_lowercase(char *hex_repr)
+{
+	char *hex_og = hex_repr;
+	while (*hex_repr != '\0')
+	{
+		if (*hex_repr >= 'A' && *hex_repr <= 'F')
+		{
+			*hex_repr = *hex_repr - 'A' + 'a';
+		}
+		hex_repr++;
+	}
+	return hex_og;
+}
+
 static void	putunbr_rec(unsigned int n, int fd)
 {
 	char	num_char;
@@ -41,12 +55,12 @@ char i_to_hex(unsigned int c)
 		return '\0';
 	}
 }
-char *num_to_hex(unsigned int n)
+char *num_to_hex(unsigned long long n)
 {
 	unsigned int current_d;
 	int cindex;
 	int  num_len;
-	unsigned int og_value;
+	unsigned long long og_value;
 	char *buffers;
 
 	if (n == 0)
@@ -79,9 +93,10 @@ char *num_to_hex(unsigned int n)
 }
 
 int	ft_printf(char const *s, ...)
-{	va_list	args;
+{	
+	va_list	args;
 	char *hex_repr;
-	char *hex_og;
+	void *p;
 
 	va_start(args, s);
 	while (*s != '\0')
@@ -91,7 +106,7 @@ int	ft_printf(char const *s, ...)
 			s++;
 			if (*s == 'c')
 			{
-				ft_putchar_fd(va_arg(args, char), 0);
+				ft_putchar_fd(va_arg(args, int), 0);
 			}
 			if (*s == 's')
 			{
@@ -115,24 +130,25 @@ int	ft_printf(char const *s, ...)
 			if (*s == 'x')
 			{
 				hex_repr = num_to_hex(va_arg(args, int));
-				hex_og = hex_repr;
-				while (*hex_repr != '\0')
-				{
-					if (*hex_repr >= 'A' && *hex_repr <= 'F')
-					{
-						*hex_repr = *hex_repr - 'A' + 'a';
-					}
-					hex_repr++;
-				}
-				hex_repr = hex_og;
+				hex_repr = convert_hex_to_lowercase(hex_repr);
 				ft_putstr_fd(hex_repr, 0);
 				free(hex_repr);
 			}
 			if (*s == 'p')
-			{
-				hex_repr = num_to_hex(va_arg(args, unsigned int));
-				ft_putstr_fd(hex_repr, 0);
-				free(hex_repr);
+			{	
+				p = va_arg(args, void*);
+				if (p == NULL)
+				{
+					ft_putstr_fd("(nil)", 0);
+				}
+				else
+				{				
+					ft_putstr_fd("0x", 0);
+					hex_repr = num_to_hex((unsigned long long) p);
+					hex_repr = convert_hex_to_lowercase(hex_repr);
+					ft_putstr_fd(hex_repr, 0);
+					free(hex_repr);
+				}
 			}
 			if (*s == '%')
 			{
@@ -141,13 +157,20 @@ int	ft_printf(char const *s, ...)
 
 
 		}
+		else
+		{
+			ft_putchar_fd(*s, 0);
+		}
+		s++;
 	}
-
-
 }
 
 
 int main(void)
-{
-	printf("%s\n", num_to_hex(16));
+{	
+
+	int x = 1;
+	printf("%x %p\n", 156, NULL);
+	ft_printf("%x %p\n", 156, NULL);
+
 }
