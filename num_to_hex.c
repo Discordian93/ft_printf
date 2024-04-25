@@ -1,3 +1,6 @@
+#include "ft_printf.h"
+#include "libft.h"
+
 char	*num_to_hex(unsigned long long n)
 {
 	unsigned int		current_d;

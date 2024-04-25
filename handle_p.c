@@ -1,3 +1,6 @@
+#include "ft_printf.h"
+#include "libft.h"
+
 int	handle_p(va_list args)
 {
 	void	*p;

@@ -1,3 +1,6 @@
+#include "ft_printf.h"
+#include "libft.h"
+
 char	i_to_hex(unsigned int c)
 {
 	if (c >= 0 && c <= 9)

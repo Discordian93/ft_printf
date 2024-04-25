@@ -1,11 +1,13 @@
+#include "ft_printf.h"
+#include "libft.h"
 #include <stdarg.h>
 #include "libft.h"
 #include <stdio.h>
 
-int ft_printf(char const *s, ...)
+int	ft_printf(char const *s, ...)
 {
 	va_list	args;
-	int     total_len;
+	int		total_len;
 
 	total_len = 0;
 	va_start(args, s);
@@ -30,7 +32,7 @@ int main(void)
 {	
 
 	int x = 1;
-	printf("%x %p\n", 156, NULL);
-	ft_printf("%x %p\n", 156, NULL);
+	printf("%i\n", printf("%x %d %p\n hola\n", 156,-9, &x));
+	printf("%i\n", ft_printf("%x %d %p\n hola\n", 156,-9, &x));
 
 }

@@ -1,3 +1,6 @@
+#include "ft_printf.h"
+#include "libft.h"
+
 char	*convert_hex_to_lowercase(char *hex_repr)
 {
 	char	*hex_og;

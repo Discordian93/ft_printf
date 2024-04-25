@@ -1,4 +1,7 @@
-static void	putunbr_rec(unsigned int n, int fd)
+#include "ft_printf.h"
+#include "libft.h"
+
+void	putunbr_rec(unsigned int n, int fd)
 {
 	char	num_char;
 

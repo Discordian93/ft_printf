@@ -1,3 +1,6 @@
+#include "ft_printf.h"
+#include "libft.h"
+
 int handle_x(va_list args)
 {
 	char	*hex_repr;
