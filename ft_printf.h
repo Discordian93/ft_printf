@@ -17,7 +17,9 @@ char			i_to_hex(unsigned int c);
 int				num_len(int num);
 char			*num_to_hex(unsigned long long n);
 void			ft_putunbr_fd(int n, int fd);
-static void		putunbr_rec(unsigned int n, int fd);
+void			putunbr_rec(unsigned int n, int fd);
 int				unum_len(unsigned long long num);
+char			*convert_hex_to_lowercase(char *hex_repr);
+
 
 #endif
