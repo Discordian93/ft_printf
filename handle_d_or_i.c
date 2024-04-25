@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
+#include "libft/libft.h"
 
 int	handle_d_or_i(va_list args)
 {
@@ -19,7 +19,7 @@ int	handle_d_or_i(va_list args)
 	int	len;
 
 	num = va_arg(args, int);
-	ft_putnbr_fd(num, 0);
+	ft_putnbr_fd(num, 1);
 	len = num_len(num);
 	return (len);
 }

@@ -11,10 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 #include <stdarg.h>
-#include "libft.h"
-#include <stdio.h>
+#include "libft/libft.h"
 
 int	ft_printf(char const *s, ...)
 {
@@ -32,7 +30,7 @@ int	ft_printf(char const *s, ...)
 		}
 		else
 		{
-			ft_putchar_fd(*s, 0);
+			ft_putchar_fd(*s, 1);
 			total_len++;
 		}
 		s++;
@@ -40,11 +38,11 @@ int	ft_printf(char const *s, ...)
 	va_end(args);
 	return (total_len);
 }
-int main(void)
+/* int main(void)
 {	
 
 	int x = 1;
 	printf("%i\n", printf("%x %d %p\n hola\n", 156,-9, &x));
 	printf("%i\n", ft_printf("%x %d %p\n hola\n", 156,-9, &x));
 
-}
+} */

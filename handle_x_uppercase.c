@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
+#include "libft/libft.h"
 
 int handle_x_uppercase(va_list args)
 {
@@ -22,7 +22,7 @@ int handle_x_uppercase(va_list args)
 	num = va_arg(args, int);
 	hex_repr = num_to_hex(num);
 	len = ft_strlen(hex_repr);
-	ft_putstr_fd(hex_repr, 0);
+	ft_putstr_fd(hex_repr, 1);
 	free(hex_repr);
 	return (len);
 }

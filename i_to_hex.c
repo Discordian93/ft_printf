@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
+#include "libft/libft.h"
 
 char	i_to_hex(unsigned int c)
 {
-	if (c >= 0 && c <= 9)
+	if (c <= 9)
 	{
 		return (c + '0');
 	}

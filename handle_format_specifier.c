@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
+#include "libft/libft.h"
 
 int	handle_format_specifier(char specifier, va_list args)
 {
@@ -27,7 +27,7 @@ int	handle_format_specifier(char specifier, va_list args)
 		return (handle_hex_and_pointer(specifier, args));
 	else if (specifier == '%')
 	{
-		ft_putchar_fd('%', 0);
+		ft_putchar_fd('%', 1);
 		return (1);
 	}
 	return (0);
