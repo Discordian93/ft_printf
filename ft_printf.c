@@ -97,7 +97,7 @@ int	unum_len(unsigned long long num)
 	while (i > 0)
 	{
 		len++;
-		i /= 10;
+		i /= 16;
 	}
 	return (len);
 }
@@ -277,4 +277,12 @@ int ft_printf(char const *s, ...)
 	}
 	va_end(args);
 	return (total_len);
+}
+int main(void)
+{	
+
+	int x = 1;
+	printf("%x %p\n", 156, NULL);
+	ft_printf("%x %p\n", 156, NULL);
+
 }
