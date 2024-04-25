@@ -12,7 +12,7 @@ int				handle_p(va_list args);
 int				handle_s(va_list args);
 int				handle_u(va_list args);
 int				handle_x(va_list args);
-int				handle_X(va_list args);
+int				handle_x_uppercase(va_list args);
 char			i_to_hex(unsigned int c);
 int				num_len(int num);
 char			*num_to_hex(unsigned long long n);

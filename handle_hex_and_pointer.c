@@ -4,7 +4,7 @@
 int	handle_hex_and_pointer(char specifier, va_list args)
 {
 	if (specifier == 'X')
-		return (handle_X(args));
+		return (handle_x_uppercase(args));
 	else if (specifier == 'x')
 		return (handle_x(args));
 	else if (specifier == 'p')

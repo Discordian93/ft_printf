@@ -1,7 +1,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-int handle_X(va_list args)
+int handle_x_uppercase(va_list args)
 {
 	char	*hex_repr;
 	int		num;
